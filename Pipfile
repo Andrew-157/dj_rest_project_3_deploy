@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 django = "*"
 djangorestframework = "*"
-mysqlclient = "*"
 pillow = "*"
 drf-nested-routers = "*"
 django-cleanup = "*"
@@ -17,6 +16,7 @@ cloudinary = "*"
 django-cloudinary-storage = "*"
 whitenoise = "*"
 gunicorn = "*"
+mysqlclient = "==2.1.1"
 
 [dev-packages]
 autopep8 = "*"
