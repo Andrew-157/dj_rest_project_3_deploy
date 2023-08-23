@@ -128,7 +128,6 @@ class RecipeImageSerializer(NestedHyperlinkedModelSerializer):
     recipe = serializers.HyperlinkedRelatedField(
         view_name='recipe-detail', read_only=True
     )
-    image = serializers.ImageField()
 
     class Meta:
         model = RecipeImage

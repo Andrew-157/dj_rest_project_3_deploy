@@ -4,7 +4,6 @@ from django.template.defaultfilters import slugify
 from django.core.validators import MinValueValidator
 from users.models import CustomUser
 from recipes.validators import validate_file_size
-from cloudinary.models import CloudinaryField
 
 
 class Category(models.Model):
@@ -100,7 +99,8 @@ class Ingredient(models.Model):
 class RecipeImage(models.Model):
     recipe = models.ForeignKey(
         Recipe, related_name='images', on_delete=models.CASCADE)
-    image = CloudinaryField("image", validators=[validate_file_size])
+    image = models.ImageField(
+        upload_to='recipes/images/', validators=[validate_file_size])
 
     class Meta:
         ordering = ['id']

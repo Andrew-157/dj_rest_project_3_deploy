@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import AbstractUser
-from cloudinary.models import CloudinaryField
 
 
 def validate_file_size(image):
@@ -16,8 +15,6 @@ class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     image = models.ImageField(upload_to='users/images/',
                               validators=[validate_file_size], null=True)
-    image = CloudinaryField("image", validators=[
-                            validate_file_size], null=True)
 
     class Meta:
         ordering = ['username']
